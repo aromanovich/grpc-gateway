@@ -8,9 +8,9 @@ import (
 	"text/template"
 
 	"github.com/golang/glog"
-	"github.com/grpc-ecosystem/grpc-gateway/internal/casing"
-	"github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
-	"github.com/grpc-ecosystem/grpc-gateway/utilities"
+	"github.com/aromanovich/grpc-gateway/internal/casing"
+	"github.com/aromanovich/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
+	"github.com/aromanovich/grpc-gateway/utilities"
 )
 
 type param struct {

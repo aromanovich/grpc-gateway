@@ -21,10 +21,10 @@ import (
 	"github.com/golang/protobuf/jsonpb"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/empty"
-	gw "github.com/grpc-ecosystem/grpc-gateway/examples/internal/proto/examplepb"
-	"github.com/grpc-ecosystem/grpc-gateway/examples/internal/proto/pathenum"
-	"github.com/grpc-ecosystem/grpc-gateway/examples/internal/proto/sub"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	gw "github.com/aromanovich/grpc-gateway/examples/internal/proto/examplepb"
+	"github.com/aromanovich/grpc-gateway/examples/internal/proto/pathenum"
+	"github.com/aromanovich/grpc-gateway/examples/internal/proto/sub"
+	"github.com/aromanovich/grpc-gateway/runtime"
 	"google.golang.org/genproto/protobuf/field_mask"
 	"google.golang.org/grpc/codes"
 )
@@ -46,7 +46,7 @@ func TestEcho(t *testing.T) {
 	testEchoOneof1(t, 8088, "application/json")
 	testEchoOneof2(t, 8088, "application/json")
 	testEchoBody(t, 8088)
-	// Use SendHeader/SetTrailer without gRPC server https://github.com/grpc-ecosystem/grpc-gateway/issues/517#issuecomment-684625645
+	// Use SendHeader/SetTrailer without gRPC server https://github.com/aromanovich/grpc-gateway/issues/517#issuecomment-684625645
 	testEchoBody(t, 8089)
 }
 

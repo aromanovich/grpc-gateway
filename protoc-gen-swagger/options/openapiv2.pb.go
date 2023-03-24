@@ -210,12 +210,12 @@ func (SecurityScheme_Flow) EnumDescriptor() ([]byte, []int) {
 //      description: ";
 //      contact: {
 //        name: "gRPC-Gateway project";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//        url: "https://github.com/aromanovich/grpc-gateway";
 //        email: "none@example.com";
 //      };
 //      license: {
 //        name: "BSD 3-Clause License";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt";
+//        url: "https://github.com/aromanovich/grpc-gateway/blob/master/LICENSE.txt";
 //      };
 //    };
 //    schemes: HTTPS;
@@ -745,12 +745,12 @@ func (m *Response) GetExtensions() map[string]*_struct.Value {
 //      description: ";
 //      contact: {
 //        name: "gRPC-Gateway project";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//        url: "https://github.com/aromanovich/grpc-gateway";
 //        email: "none@example.com";
 //      };
 //      license: {
 //        name: "BSD 3-Clause License";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt";
+//        url: "https://github.com/aromanovich/grpc-gateway/blob/master/LICENSE.txt";
 //      };
 //    };
 //    ...
@@ -862,7 +862,7 @@ func (m *Info) GetExtensions() map[string]*_struct.Value {
 //      ...
 //      contact: {
 //        name: "gRPC-Gateway project";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//        url: "https://github.com/aromanovich/grpc-gateway";
 //        email: "none@example.com";
 //      };
 //      ...
@@ -941,7 +941,7 @@ func (m *Contact) GetEmail() string {
 //      ...
 //      license: {
 //        name: "BSD 3-Clause License";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt";
+//        url: "https://github.com/aromanovich/grpc-gateway/blob/master/LICENSE.txt";
 //      };
 //      ...
 //    };
@@ -1008,7 +1008,7 @@ func (m *License) GetUrl() string {
 //    ...
 //    external_docs: {
 //      description: "More about gRPC-Gateway";
-//      url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//      url: "https://github.com/aromanovich/grpc-gateway";
 //    }
 //    ...
 //  };
