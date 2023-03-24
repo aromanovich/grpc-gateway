@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/grpc-ecosystem/grpc-gateway/internal/casing"
+	"github.com/aromanovich/grpc-gateway/internal/casing"
 	"google.golang.org/genproto/protobuf/field_mask"
 )
 

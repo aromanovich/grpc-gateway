@@ -5,8 +5,8 @@ import (
 	"strings"
 
 	"github.com/golang/protobuf/protoc-gen-go/descriptor"
-	"github.com/grpc-ecosystem/grpc-gateway/internal/casing"
-	"github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/httprule"
+	"github.com/aromanovich/grpc-gateway/internal/casing"
+	"github.com/aromanovich/grpc-gateway/protoc-gen-grpc-gateway/httprule"
 )
 
 // IsWellKnownType returns true if the provided fully qualified type name is considered 'well-known'.

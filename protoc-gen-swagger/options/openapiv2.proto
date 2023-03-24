@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package grpc.gateway.protoc_gen_swagger.options;
 
-option go_package = "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/options";
+option go_package = "github.com/aromanovich/grpc-gateway/protoc-gen-swagger/options";
 
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
@@ -20,12 +20,12 @@ import "google/protobuf/struct.proto";
 //      description: ";
 //      contact: {
 //        name: "gRPC-Gateway project";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//        url: "https://github.com/aromanovich/grpc-gateway";
 //        email: "none@example.com";
 //      };
 //      license: {
 //        name: "BSD 3-Clause License";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt";
+//        url: "https://github.com/aromanovich/grpc-gateway/blob/master/LICENSE.txt";
 //      };
 //    };
 //    schemes: HTTPS;
@@ -249,12 +249,12 @@ message Response {
 //      description: ";
 //      contact: {
 //        name: "gRPC-Gateway project";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//        url: "https://github.com/aromanovich/grpc-gateway";
 //        email: "none@example.com";
 //      };
 //      license: {
 //        name: "BSD 3-Clause License";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt";
+//        url: "https://github.com/aromanovich/grpc-gateway/blob/master/LICENSE.txt";
 //      };
 //    };
 //    ...
@@ -289,7 +289,7 @@ message Info {
 //      ...
 //      contact: {
 //        name: "gRPC-Gateway project";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//        url: "https://github.com/aromanovich/grpc-gateway";
 //        email: "none@example.com";
 //      };
 //      ...
@@ -319,7 +319,7 @@ message Contact {
 //      ...
 //      license: {
 //        name: "BSD 3-Clause License";
-//        url: "https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt";
+//        url: "https://github.com/aromanovich/grpc-gateway/blob/master/LICENSE.txt";
 //      };
 //      ...
 //    };
@@ -344,7 +344,7 @@ message License {
 //    ...
 //    external_docs: {
 //      description: "More about gRPC-Gateway";
-//      url: "https://github.com/grpc-ecosystem/grpc-gateway";
+//      url: "https://github.com/aromanovich/grpc-gateway";
 //    }
 //    ...
 //  };

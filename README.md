@@ -1,6 +1,6 @@
 # grpc-gateway
 
-[![release](https://img.shields.io/github/release/grpc-ecosystem/grpc-gateway.svg?style=flat-square)](https://github.com/grpc-ecosystem/grpc-gateway/releases)
+[![release](https://img.shields.io/github/release/grpc-ecosystem/grpc-gateway.svg?style=flat-square)](https://github.com/aromanovich/grpc-gateway/releases)
 [![CircleCI](https://img.shields.io/circleci/project/github/grpc-ecosystem/grpc-gateway/master.svg?style=flat-square)](https://circleci.com/gh/grpc-ecosystem/grpc-gateway)
 [![coverage](https://img.shields.io/codecov/c/github/grpc-ecosystem/grpc-gateway/master.svg?style=flat-square)](https://codecov.io/gh/grpc-ecosystem/grpc-gateway)
 [![license](https://img.shields.io/github/license/grpc-ecosystem/grpc-gateway.svg?style=flat-square)](LICENSE.txt)
@@ -60,8 +60,8 @@ to track the versions of the following executable packages:
 package tools
 
 import (
-    _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway"
-    _ "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger"
+    _ "github.com/aromanovich/grpc-gateway/protoc-gen-grpc-gateway"
+    _ "github.com/aromanovich/grpc-gateway/protoc-gen-swagger"
     _ "github.com/golang/protobuf/protoc-gen-go"
 )
 ```
@@ -70,8 +70,8 @@ Run `go mod tidy` to resolve the versions. Install by running
 
 ```sh
 $ go install \
-    github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
-    github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
+    github.com/aromanovich/grpc-gateway/protoc-gen-grpc-gateway \
+    github.com/aromanovich/grpc-gateway/protoc-gen-swagger \
     github.com/golang/protobuf/protoc-gen-go
 ```
 
@@ -224,7 +224,7 @@ Make sure that your `$GOBIN` is in your `$PATH`.
      "net/http"
  
      "github.com/golang/glog"
-     "github.com/grpc-ecosystem/grpc-gateway/runtime"
+     "github.com/aromanovich/grpc-gateway/runtime"
      "google.golang.org/grpc"
  
      gw "github.com/yourorg/yourrepo/proto/gen/go/your/service/v1/your_service"  // Update
@@ -370,7 +370,7 @@ But patch is welcome.
 
 # Mapping gRPC to HTTP
 
-* [How gRPC error codes map to HTTP status codes in the response](https://github.com/grpc-ecosystem/grpc-gateway/blob/master/runtime/errors.go#L15).
+* [How gRPC error codes map to HTTP status codes in the response](https://github.com/aromanovich/grpc-gateway/blob/master/runtime/errors.go#L15).
 * HTTP request source IP is added as `X-Forwarded-For` gRPC request header.
 * HTTP request host is added as `X-Forwarded-Host` gRPC request header.
 * HTTP `Authorization` header is added as `authorization` gRPC request header.
@@ -385,8 +385,8 @@ header.
 `OrigName: true`.
 
 # Contribution
-See [CONTRIBUTING.md](http://github.com/grpc-ecosystem/grpc-gateway/blob/master/CONTRIBUTING.md).
+See [CONTRIBUTING.md](http://github.com/aromanovich/grpc-gateway/blob/master/CONTRIBUTING.md).
 
 # License
 grpc-gateway is licensed under the BSD 3-Clause License.
-See [LICENSE.txt](https://github.com/grpc-ecosystem/grpc-gateway/blob/master/LICENSE.txt) for more details.
+See [LICENSE.txt](https://github.com/aromanovich/grpc-gateway/blob/master/LICENSE.txt) for more details.
