@@ -4,7 +4,6 @@ import (
 	"context"
 	"io"
 	"net/http"
-	"strings"
 
 	"github.com/aromanovich/grpc-gateway/internal"
 	"google.golang.org/grpc/codes"
@@ -160,10 +159,9 @@ func DefaultHTTPError(ctx context.Context, mux *ServeMux, marshaler Marshaler, w
 	// is acceptable, as described in Section 4.3, a server SHOULD NOT
 	// generate trailer fields that it believes are necessary for the user
 	// agent to receive.
-	var wantsTrailers bool
+	doForwardTrailers := requestAcceptsTrailers(r)
 
-	if te := r.Header.Get("TE"); strings.Contains(strings.ToLower(te), "trailers") {
-		wantsTrailers = true
+	if doForwardTrailers {
 		handleForwardResponseTrailerHeader(w, md)
 		w.Header().Set("Transfer-Encoding", "chunked")
 	}
@@ -174,7 +172,7 @@ func DefaultHTTPError(ctx context.Context, mux *ServeMux, marshaler Marshaler, w
 		grpclog.Infof("Failed to write response: %v", err)
 	}
 
-	if wantsTrailers {
+	if doForwardTrailers {
 		handleForwardResponseTrailer(w, md)
 	}
 }

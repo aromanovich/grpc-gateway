@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/golang/protobuf/jsonpb"
 	"github.com/aromanovich/grpc-gateway/runtime"
+	"github.com/golang/protobuf/jsonpb"
 	spb "google.golang.org/genproto/googleapis/rpc/status"
 	"google.golang.org/grpc/codes"
 )
@@ -110,10 +110,10 @@ func testABELookupNotFoundWithProtoError(t *testing.T, port uint16) {
 	if got, want := resp.Header.Get("Grpc-Metadata-Uuid"), uuid; got != want {
 		t.Errorf("Grpc-Metadata-Uuid was %s, wanted %s", got, want)
 	}
-	if got, want := resp.Trailer.Get("Grpc-Trailer-Foo"), "foo2"; got != want {
+	if got, want := resp.Trailer.Get("Grpc-Trailer-Foo"), ""; got != want {
 		t.Errorf("Grpc-Trailer-Foo was %q, wanted %q", got, want)
 	}
-	if got, want := resp.Trailer.Get("Grpc-Trailer-Bar"), "bar2"; got != want {
+	if got, want := resp.Trailer.Get("Grpc-Trailer-Bar"), ""; got != want {
 		t.Errorf("Grpc-Trailer-Bar was %q, wanted %q", got, want)
 	}
 }

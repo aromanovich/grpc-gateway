@@ -18,13 +18,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/golang/protobuf/jsonpb"
-	"github.com/golang/protobuf/proto"
-	"github.com/golang/protobuf/ptypes/empty"
 	gw "github.com/aromanovich/grpc-gateway/examples/internal/proto/examplepb"
 	"github.com/aromanovich/grpc-gateway/examples/internal/proto/pathenum"
 	"github.com/aromanovich/grpc-gateway/examples/internal/proto/sub"
 	"github.com/aromanovich/grpc-gateway/runtime"
+	"github.com/golang/protobuf/jsonpb"
+	"github.com/golang/protobuf/proto"
+	"github.com/golang/protobuf/ptypes/empty"
 	"google.golang.org/genproto/protobuf/field_mask"
 	"google.golang.org/grpc/codes"
 )
@@ -255,10 +255,10 @@ func testEchoBody(t *testing.T, port int) {
 		t.Errorf("Grpc-Metadata-Bar was %q, wanted %q", got, want)
 	}
 
-	if got, want := resp.Trailer.Get("Grpc-Trailer-Foo"), "foo2"; got != want {
+	if got, want := resp.Trailer.Get("Grpc-Trailer-Foo"), ""; got != want {
 		t.Errorf("Grpc-Trailer-Foo was %q, wanted %q", got, want)
 	}
-	if got, want := resp.Trailer.Get("Grpc-Trailer-Bar"), "bar2"; got != want {
+	if got, want := resp.Trailer.Get("Grpc-Trailer-Bar"), ""; got != want {
 		t.Errorf("Grpc-Trailer-Bar was %q, wanted %q", got, want)
 	}
 }
@@ -552,10 +552,10 @@ func testABEBulkCreate(t *testing.T, port int) {
 		t.Errorf("Grpc-Metadata-Count was %q, wanted %q", got, want)
 	}
 
-	if got, want := resp.Trailer.Get("Grpc-Trailer-Foo"), "foo2"; got != want {
+	if got, want := resp.Trailer.Get("Grpc-Trailer-Foo"), ""; got != want {
 		t.Errorf("Grpc-Trailer-Foo was %q, wanted %q", got, want)
 	}
-	if got, want := resp.Trailer.Get("Grpc-Trailer-Bar"), "bar2"; got != want {
+	if got, want := resp.Trailer.Get("Grpc-Trailer-Bar"), ""; got != want {
 		t.Errorf("Grpc-Trailer-Bar was %q, wanted %q", got, want)
 	}
 }
