@@ -46,7 +46,7 @@ func TestEcho(t *testing.T) {
 	testEchoOneof1(t, 8088, "application/json")
 	testEchoOneof2(t, 8088, "application/json")
 	testEchoBody(t, 8088)
-	// Use SendHeader/SetTrailer without gRPC server https://github.com/grpc-ecosystem/grpc-gateway/issues/517#issuecomment-684625645
+	// Use SendHeader/SetTrailer without gRPC server https://github.com/aromanovich/grpc-gateway/issues/517#issuecomment-684625645
 	testEchoBody(t, 8089)
 }
 
