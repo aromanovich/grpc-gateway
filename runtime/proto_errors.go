@@ -5,8 +5,8 @@ import (
 	"io"
 	"net/http"
 
+	"github.com/aromanovich/grpc-gateway/internal"
 	"github.com/golang/protobuf/ptypes/any"
-	"github.com/grpc-ecosystem/grpc-gateway/internal"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
 	"google.golang.org/grpc/status"
@@ -32,7 +32,7 @@ var _ ProtoErrorHandlerFunc = DefaultHTTPProtoErrorHandler
 // The response body returned by this function is a Status message marshaled by a Marshaler.
 //
 // Do not set this function to HTTPError variable directly, use WithProtoErrorHandler option instead.
-func DefaultHTTPProtoErrorHandler(ctx context.Context, mux *ServeMux, marshaler Marshaler, w http.ResponseWriter, _ *http.Request, err error) {
+func DefaultHTTPProtoErrorHandler(ctx context.Context, mux *ServeMux, marshaler Marshaler, w http.ResponseWriter, r *http.Request, err error) {
 	// return Internal when Marshal failed
 	const fallback = `{"code": 13, "message": "failed to marshal error message"}`
 
@@ -42,6 +42,7 @@ func DefaultHTTPProtoErrorHandler(ctx context.Context, mux *ServeMux, marshaler 
 	}
 
 	w.Header().Del("Trailer")
+	w.Header().Del("Transfer-Encoding")
 
 	contentType := marshaler.ContentType()
 	// Check marshaler on run time in order to keep backwards compatibility
@@ -69,14 +70,28 @@ func DefaultHTTPProtoErrorHandler(ctx context.Context, mux *ServeMux, marshaler 
 	}
 
 	handleForwardResponseServerMetadata(w, mux, md)
-	handleForwardResponseTrailerHeader(w, md)
+
+	// RFC 7230 https://tools.ietf.org/html/rfc7230#section-4.1.2
+	// Unless the request includes a TE header field indicating "trailers"
+	// is acceptable, as described in Section 4.3, a server SHOULD NOT
+	// generate trailer fields that it believes are necessary for the user
+	// agent to receive.
+	doForwardTrailers := requestAcceptsTrailers(r)
+
+	if doForwardTrailers {
+		handleForwardResponseTrailerHeader(w, md)
+		w.Header().Set("Transfer-Encoding", "chunked")
+	}
+
 	st := HTTPStatusFromCode(s.Code())
 	w.WriteHeader(st)
 	if _, err := w.Write(buf); err != nil {
 		grpclog.Infof("Failed to write response: %v", err)
 	}
 
-	handleForwardResponseTrailer(w, md)
+	if doForwardTrailers {
+		handleForwardResponseTrailer(w, md)
+	}
 }
 
 // DefaultHTTPStreamErrorHandler converts the given err into a *StreamError via
